@@ -240,7 +240,8 @@ body {
   margin-top: 1rem;
 }
 
-.is--invalid + .error-message {
+.is--invalid + .error-message,
+.error-message-login.is--invalid {
   display: block;
 }
 
