@@ -35,10 +35,10 @@ function setNameText(name) {
   document.querySelector(".nickName").textContent = name;
 }
 
-// 오디오 제어 함수
-function loadAudio(name) {
-  const audio = new Audio(`./assets/audio/${name}.m4a`);
-  audio.play();
+// AudioPlayer 클래스 제어 함수
+function handleAudio(name) {
+  const audioPlayer = new AudioPlayer(`./assets/audio/${name}.m4a`);
+  audioPlayer.play();
 }
 
 // click 이벤트 함수
@@ -56,7 +56,7 @@ function handleClick(e) {
   setBgColor(colorA, colorB);
   setImg(name, alt);
   setNameText(name);
-  loadAudio(name);
+  handleAudio(name);
 }
 
 navigation.addEventListener("click", handleClick);
