@@ -12,6 +12,7 @@
 const navigation = document.querySelector("nav > ul");
 const visualImage = document.querySelector(".visual img");
 const defaultColor = "#000";
+let audio = null;
 
 // is-active 설정 함수
 function setActive(li) {
@@ -35,10 +36,13 @@ function setNameText(name) {
   document.querySelector(".nickName").textContent = name;
 }
 
-// AudioPlayer 클래스 제어 함수
+// 오디오 제어 함수
 function handleAudio(name) {
-  const audioPlayer = new AudioPlayer(`./assets/audio/${name}.m4a`);
-  audioPlayer.play();
+  if (audio) audio.stop();
+
+  audio = new AudioPlayer(`./assets/audio/${name}.m4a`);
+  audio.volume(0.7);
+  audio.play();
 }
 
 // click 이벤트 함수
