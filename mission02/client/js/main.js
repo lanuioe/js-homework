@@ -12,7 +12,7 @@
 const navigation = document.querySelector("nav > ul");
 const visualImage = document.querySelector(".visual img");
 const defaultColor = "#000";
-let audio = null;
+let audio;
 
 // is-active 설정 함수
 function setActive(li) {
@@ -38,7 +38,9 @@ function setNameText(name) {
 
 // 오디오 제어 함수
 function handleAudio(name) {
-  if (audio) audio.stop();
+  if (audio && audio.isPlaying()) {
+    audio.stop();
+  }
 
   audio = new AudioPlayer(`./assets/audio/${name}.m4a`);
   audio.volume(0.7);
@@ -48,8 +50,11 @@ function handleAudio(name) {
 // 오디오 제어 방법2
 // const name = data.map((item) => item.name.toLowerCase());
 // const audioArr = name.map((name) => createAudio(name));
-// const createAudio = (name) => new AudioPlayer(`./assets/audio/${name}.m4a`);
 // let currentAudio = audioArr[0];
+
+// function createAudio(name) {
+//   return new AudioPlayer(`./assets/audio/${name}.m4a`);
+// }
 
 // function handleAudio(index) {
 //   if (currentAudio.isPlaying()) {
