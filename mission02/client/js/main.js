@@ -45,6 +45,21 @@ function handleAudio(name) {
   audio.play();
 }
 
+// 오디오 제어 방법2
+// const name = data.map((item) => item.name.toLowerCase());
+// const audioArr = name.map((name) => createAudio(name));
+// const createAudio = (name) => new AudioPlayer(`./assets/audio/${name}.m4a`);
+// let currentAudio = audioArr[0];
+
+// function handleAudio(index) {
+//   if (currentAudio.isPlaying()) {
+//     currentAudio.stop();
+//   }
+//   audioArr[index].volume(0.7);
+//   audioArr[index].play();
+//   currentAudio = audioArr[index];
+// }
+
 // click 이벤트 함수
 function handleClick(e) {
   e.preventDefault();
@@ -61,6 +76,7 @@ function handleClick(e) {
   setImg(name, alt);
   setNameText(name);
   handleAudio(name);
+  // handleAudio(index); // 오디오 제어 방법2
 }
 
 navigation.addEventListener("click", handleClick);
